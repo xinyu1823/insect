@@ -1,6 +1,7 @@
 name: get stock price
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "*/5 1-5 * * 1-5"
 
@@ -10,10 +11,10 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.9"
 
@@ -24,3 +25,4 @@ jobs:
 
       - name: Run Python script
         run: python test1.py
+
